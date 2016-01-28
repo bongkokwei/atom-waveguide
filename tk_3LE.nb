@@ -1,0 +1,775 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     30477,        766]
+NotebookOptionsPosition[     28845,        706]
+NotebookOutlinePosition[     29224,        722]
+CellTagsIndexPosition[     29181,        719]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Transmission Spectra for 3LE", "Title",
+ CellChangeTimes->{{3.5990253472084026`*^9, 3.599025363335325*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"t", "[", 
+   RowBox[{
+   "\[CapitalDelta]_", ",", "\[Gamma]_", ",", "\[CapitalGamma]_", ",", 
+    "\[CapitalOmega]_", ",", "x_"}], "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"x", "+", "\[CapitalDelta]", "+", 
+           RowBox[{"I", " ", "*", 
+            RowBox[{"\[Gamma]", "/", "2"}]}]}], ")"}], "*", 
+         RowBox[{"(", 
+          RowBox[{"x", " ", "+", " ", 
+           RowBox[{"I", "/", "2"}], " ", "-", 
+           RowBox[{"I", "*", 
+            RowBox[{"\[CapitalGamma]", "/", "2"}]}]}], ")"}]}], "-", 
+        RowBox[{
+         SuperscriptBox["\[CapitalOmega]", "2"], "/", "4"}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"x", "+", "\[CapitalDelta]", "+", 
+           RowBox[{"I", " ", "*", 
+            RowBox[{"\[Gamma]", "/", "2"}]}]}], ")"}], "*", 
+         RowBox[{"(", 
+          RowBox[{"x", " ", "+", " ", 
+           RowBox[{"I", "/", "2"}], " ", "+", 
+           RowBox[{"I", "*", 
+            RowBox[{"\[CapitalGamma]", "/", "2"}]}]}], ")"}]}], "-", 
+        RowBox[{
+         SuperscriptBox["\[CapitalOmega]", "2"], "/", "4"}]}], ")"}]}], "+", 
+     "1"}], ")"}], "/", "2"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6028232250880327`*^9, 3.6028233744925785`*^9}, 
+   3.602823530452499*^9, {3.602823564442443*^9, 3.602823580765376*^9}, {
+   3.6028240256298213`*^9, 3.6028240308981223`*^9}, {3.602825349687553*^9, 
+   3.602825351652665*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"r", "[", 
+   RowBox[{
+   "\[CapitalDelta]_", ",", "\[Gamma]_", ",", "\[CapitalGamma]_", ",", 
+    "\[CapitalOmega]_", ",", "x_"}], "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"x", "+", "\[CapitalDelta]", "+", 
+           RowBox[{"I", " ", "*", 
+            RowBox[{"\[Gamma]", "/", "2"}]}]}], ")"}], "*", 
+         RowBox[{"(", 
+          RowBox[{"x", " ", "+", " ", 
+           RowBox[{"I", "/", "2"}], " ", "-", 
+           RowBox[{"I", "*", 
+            RowBox[{"\[CapitalGamma]", "/", "2"}]}]}], ")"}]}], "-", 
+        RowBox[{
+         SuperscriptBox["\[CapitalOmega]", "2"], "/", "4"}]}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"x", "+", "\[CapitalDelta]", "+", 
+           RowBox[{"I", " ", "*", 
+            RowBox[{"\[Gamma]", "/", "2"}]}]}], ")"}], "*", 
+         RowBox[{"(", 
+          RowBox[{"x", " ", "+", " ", 
+           RowBox[{"I", "/", "2"}], " ", "+", 
+           RowBox[{"I", "*", 
+            RowBox[{"\[CapitalGamma]", "/", "2"}]}]}], ")"}]}], "-", 
+        RowBox[{
+         SuperscriptBox["\[CapitalOmega]", "2"], "/", "4"}]}], ")"}]}], "-", 
+     "1"}], ")"}], "/", "2"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.60282333204115*^9, 3.602823332089153*^9}, 
+   3.6028233810809555`*^9, 3.6028235362308292`*^9, 3.6028235820484495`*^9, {
+   3.6028240360874195`*^9, 3.6028240399886427`*^9}, {3.602825346702382*^9, 
+   3.6028253483334756`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Abs", "[", 
+         RowBox[{"t", "[", 
+          RowBox[{
+          "\[CapitalDelta]", ",", "\[Gamma]", ",", "\[CapitalGamma]", ",", 
+           "\[CapitalOmega]", ",", "x"}], "]"}], " ", "]"}], "^", "2"}], ",", 
+       RowBox[{
+        RowBox[{"Abs", "[", 
+         RowBox[{"r", "[", 
+          RowBox[{
+          "\[CapitalDelta]", ",", "\[Gamma]", ",", "\[CapitalGamma]", ",", 
+           "\[CapitalOmega]", ",", "x"}], "]"}], "]"}], "^", "2"}]}], "}"}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotLegends", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Transmission\>\"", ",", "\"\<Reflection\>\""}], "}"}]}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Blue", ",", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Red", ",", "Dashed"}], "]"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Axes", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"True", ",", "False"}], "}"}]}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<(ck-\!\(\*SubscriptBox[\(E\), \(2\)]\))/\[Gamma]\>\"", ",", 
+        "\"\<Transmission(Solid), Reflection(Dashed)\>\""}], "}"}]}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"\[Gamma]", ",", "0", ",", "3", ",", "0.5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[CapitalOmega]", ",", "0", ",", "4", ",", "0.5"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[CapitalGamma]", ",", "0", ",", "4", ",", "0.25"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[CapitalDelta]", ",", "0", ",", "2", ",", "0.5"}], "}"}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.599025742720024*^9, 3.599026070399767*^9}, {
+   3.599026196456977*^9, 3.59902621155184*^9}, {3.5990262475689*^9, 
+   3.5990262678000574`*^9}, {3.5990283191603885`*^9, 
+   3.5990283355383253`*^9}, {3.5990287773105927`*^9, 3.599028801068952*^9}, {
+   3.5990311129198065`*^9, 3.5990311265835876`*^9}, {3.5990312087512875`*^9, 
+   3.5990312527658052`*^9}, {3.599031374468766*^9, 3.5990313806131177`*^9}, {
+   3.599031474132467*^9, 3.5990314999019403`*^9}, {3.599031567292795*^9, 
+   3.599031579987521*^9}, {3.5990319399341087`*^9, 3.59903194309729*^9}, {
+   3.5990333523838964`*^9, 3.599033365798664*^9}, {3.5990527096481185`*^9, 
+   3.599052709888132*^9}, {3.599052945646617*^9, 3.59905297523831*^9}, {
+   3.599053009094246*^9, 3.59905300968628*^9}, {3.5990530452453136`*^9, 
+   3.599053051039645*^9}, {3.5990530894138403`*^9, 3.5990530945241327`*^9}, {
+   3.5990531303891835`*^9, 3.5990531606019115`*^9}, {3.599053238977394*^9, 
+   3.599053239181406*^9}, {3.5990532725853167`*^9, 3.59905330096694*^9}, {
+   3.5990533406002073`*^9, 3.599053413365369*^9}, {3.599053530242054*^9, 
+   3.5990535520663023`*^9}, {3.604032165695915*^9, 3.6040322160747967`*^9}, {
+   3.604032333403507*^9, 3.6040323970841494`*^9}, {3.6040325060043793`*^9, 
+   3.6040325242364225`*^9}, {3.6040333172027774`*^9, 3.60403333648288*^9}, {
+   3.6040337101772547`*^9, 3.6040337121883693`*^9}, {3.6040337818433533`*^9, 
+   3.6040338367084913`*^9}, 3.604033905625433*^9, {3.6040340816445007`*^9, 
+   3.6040341112571945`*^9}, {3.605236246149619*^9, 3.6052362463726315`*^9}, {
+   3.605236278245455*^9, 3.605236284093789*^9}, {3.6052363402410007`*^9, 
+   3.605236343078163*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`\[Gamma]$$ = 
+    0., $CellContext`\[CapitalGamma]$$ = 0., $CellContext`\[CapitalDelta]$$ = 
+    0, $CellContext`\[CapitalOmega]$$ = 0., Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[Gamma]$$], 0, 3, 0.5}, {
+      Hold[$CellContext`\[CapitalOmega]$$], 0, 4, 0.5}, {
+      Hold[$CellContext`\[CapitalGamma]$$], 0, 4, 0.25}, {
+      Hold[$CellContext`\[CapitalDelta]$$], 0, 2, 0.5}}, Typeset`size$$ = {
+    717., {176., 185.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`\[Gamma]$3989$$ = 
+    0, $CellContext`\[CapitalOmega]$3990$$ = 
+    0, $CellContext`\[CapitalGamma]$3991$$ = 
+    0, $CellContext`\[CapitalDelta]$3992$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`\[Gamma]$$ = 
+        0, $CellContext`\[CapitalGamma]$$ = 0, $CellContext`\[CapitalDelta]$$ = 
+        0, $CellContext`\[CapitalOmega]$$ = 0}, "ControllerVariables" :> {
+        Hold[$CellContext`\[Gamma]$$, $CellContext`\[Gamma]$3989$$, 0], 
+        Hold[$CellContext`\[CapitalOmega]$$, \
+$CellContext`\[CapitalOmega]$3990$$, 0], 
+        Hold[$CellContext`\[CapitalGamma]$$, \
+$CellContext`\[CapitalGamma]$3991$$, 0], 
+        Hold[$CellContext`\[CapitalDelta]$$, \
+$CellContext`\[CapitalDelta]$3992$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[{Abs[
+           $CellContext`t[$CellContext`\[CapitalDelta]$$, $CellContext`\
+\[Gamma]$$, $CellContext`\[CapitalGamma]$$, $CellContext`\[CapitalOmega]$$, \
+$CellContext`x]]^2, Abs[
+           $CellContext`r[$CellContext`\[CapitalDelta]$$, $CellContext`\
+\[Gamma]$$, $CellContext`\[CapitalGamma]$$, $CellContext`\[CapitalOmega]$$, \
+$CellContext`x]]^2}, {$CellContext`x, -10, 10}, PlotRange -> {0, 1}, 
+        PlotLegends -> {"Transmission", "Reflection"}, PlotStyle -> {Blue, 
+          Directive[Red, Dashed]}, Axes -> {True, False}, 
+        FrameLabel -> {
+         "(ck-\!\(\*SubscriptBox[\(E\), \(2\)]\))/\[Gamma]", 
+          "Transmission(Solid), Reflection(Dashed)"}, Frame -> True], 
+      "Specifications" :> {{$CellContext`\[Gamma]$$, 0, 3, 
+         0.5}, {$CellContext`\[CapitalOmega]$$, 0, 4, 
+         0.5}, {$CellContext`\[CapitalGamma]$$, 0, 4, 
+         0.25}, {$CellContext`\[CapitalDelta]$$, 0, 2, 0.5}}, "Options" :> {},
+       "DefaultOptions" :> {}],
+     ImageSizeCache->{789., {307., 316.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.5990288019760036`*^9, 3.5990311274306364`*^9, 3.599031221850037*^9, 
+   3.599031259372183*^9, 3.5990313813401594`*^9, {3.599031478091693*^9, 
+   3.599031501151012*^9}, {3.599031571940061*^9, 3.5990315805205517`*^9}, 
+   3.599031946333475*^9, {3.599033356416127*^9, 3.5990333663746967`*^9}, 
+   3.5990522337789*^9, 3.599052662503422*^9, 3.5990527112562103`*^9, {
+   3.599052960048441*^9, 3.599053010355318*^9}, 3.5990530526507373`*^9, 
+   3.599053094874152*^9, 3.599053161528965*^9, 3.599053239829443*^9, 
+   3.599053302052002*^9, 3.5990533419012814`*^9, {3.5990534010816665`*^9, 
+   3.599053414859454*^9}, {3.5990535360883884`*^9, 3.599053554444438*^9}, 
+   3.604032224264265*^9, {3.6040323768659935`*^9, 3.604032398470229*^9}, {
+   3.604032507154445*^9, 3.604032525125473*^9}, 3.604033338544998*^9, 
+   3.6040338042046323`*^9, 3.6040338379185605`*^9, {3.604034084114642*^9, 
+   3.604034112175247*^9}, 3.60403469320048*^9, {3.6040348606020546`*^9, 
+   3.60403488603751*^9}, 3.604034927152861*^9, 3.6040351869477205`*^9, 
+   3.6052362521219606`*^9, 3.60523628551087*^9, 3.605236347801433*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"Change", " ", "value", " ", "of", " ", "\[CapitalOmega]"}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.604034276287634*^9, 3.604034320239148*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<tk_3LE_1.png\>\"", ",", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Abs", "[", 
+        RowBox[{"t", "[", 
+         RowBox[{"0", ",", "0", ",", "2.5", ",", "1.5", ",", "x"}], "]"}], 
+        " ", "]"}], ",", 
+       RowBox[{"Abs", "[", 
+        RowBox[{"r", "[", 
+         RowBox[{"0", ",", "0", ",", "2.5", ",", "1.5", ",", "x"}], "]"}], 
+        " ", "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Blue", ",", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Red", ",", "Dashed"}], "]"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Axes", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"True", ",", "False"}], "}"}]}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<(ck-\!\(\*SubscriptBox[\(E\), \(2\)]\))/\[Gamma]\>\"", ",", 
+        "\"\<Transmission(Solid), Reflection(Dashed)\>\""}], "}"}]}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.604034205877607*^9, 3.6040342064216375`*^9}, {
+   3.604034243554762*^9, 3.604034266672084*^9}, {3.6040342973998413`*^9, 
+   3.6040343074094143`*^9}, 3.6040346072615643`*^9, {3.6040346582634816`*^9, 
+   3.60403469040032*^9}, {3.6040347952283154`*^9, 3.6040347970614204`*^9}, {
+   3.6040349039965367`*^9, 3.604034906403674*^9}, {3.604035168453663*^9, 
+   3.6040351687686806`*^9}}],
+
+Cell[BoxData["\<\"tk_3LE_1.png\"\>"], "Output",
+ CellChangeTimes->{
+  3.6040346936515055`*^9, 3.604034742050274*^9, {3.604034860900072*^9, 
+   3.604034886290524*^9}, 3.604034927533883*^9, 3.60403518728374*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<tk_3LE_2.png\>\"", ",", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Abs", "[", 
+        RowBox[{"t", "[", 
+         RowBox[{"0", ",", "0", ",", "2.5", ",", "2.5", ",", "x"}], "]"}], 
+        " ", "]"}], ",", 
+       RowBox[{"Abs", "[", 
+        RowBox[{"r", "[", 
+         RowBox[{"0", ",", "0", ",", "2.5", ",", "2.5", ",", "x"}], "]"}], 
+        " ", "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Blue", ",", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Red", ",", "Dashed"}], "]"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Axes", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"True", ",", "False"}], "}"}]}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<(ck-\!\(\*SubscriptBox[\(E\), \(2\)]\))/\[Gamma]\>\"", ",", 
+        "\"\<Transmission(Solid), Reflection(Dashed)\>\""}], "}"}]}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6040343240913677`*^9, 3.604034324229376*^9}, {
+   3.604034363674632*^9, 3.6040343637796383`*^9}, 3.6040346009332027`*^9, {
+   3.6040347846297092`*^9, 3.604034800706629*^9}, {3.6040348975411673`*^9, 
+   3.604034899524281*^9}, {3.6040351654274898`*^9, 3.6040351658015113`*^9}, {
+   3.60403574117142*^9, 3.60403574483463*^9}}],
+
+Cell[BoxData["\<\"tk_3LE_2.png\"\>"], "Output",
+ CellChangeTimes->{{3.6040348609180727`*^9, 3.604034886317526*^9}, 
+   3.604034927771897*^9, 3.60403518746175*^9, 3.6040357471577625`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"Change", " ", "value", " ", "of", " ", "\[CapitalGamma]"}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.6040343533390408`*^9, 3.604034359042367*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<tk_3LE_3.png\>\"", ",", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Abs", "[", 
+        RowBox[{"t", "[", 
+         RowBox[{"0", ",", "0", ",", "2.5", ",", "1.5", ",", "x"}], "]"}], 
+        " ", "]"}], ",", 
+       RowBox[{"Abs", "[", 
+        RowBox[{"r", "[", 
+         RowBox[{"0", ",", "0", ",", "2.5", ",", "1.5", ",", "x"}], "]"}], 
+        " ", "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Blue", ",", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Red", ",", "Dashed"}], "]"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Axes", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"True", ",", "False"}], "}"}]}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<(ck-\!\(\*SubscriptBox[\(E\), \(2\)]\))/\[Gamma]\>\"", ",", 
+        "\"\<Transmission(Solid), Reflection(Dashed)\>\""}], "}"}]}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.604034205877607*^9, 3.6040342064216375`*^9}, {
+   3.604034243554762*^9, 3.604034266672084*^9}, {3.6040342973998413`*^9, 
+   3.6040343074094143`*^9}, {3.604034380882616*^9, 3.6040343835267677`*^9}, 
+   3.604034591543666*^9, {3.604034807350009*^9, 3.6040348127243166`*^9}, {
+   3.6040348900127373`*^9, 3.6040348925928845`*^9}, {3.6040349985579453`*^9, 
+   3.604035021139237*^9}, {3.604035172001866*^9, 3.6040351722898827`*^9}, 
+   3.6040354725050535`*^9}],
+
+Cell[BoxData["\<\"tk_3LE_3.png\"\>"], "Output",
+ CellChangeTimes->{
+  3.6040346938695183`*^9, {3.6040348610130787`*^9, 3.604034886426532*^9}, 
+   3.604034927989909*^9, {3.60403500178913*^9, 3.6040350220902915`*^9}, 
+   3.6040351876447606`*^9, 3.604035475310214*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<tk_3LE_4.png\>\"", ",", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Abs", "[", 
+        RowBox[{"t", "[", 
+         RowBox[{"0", ",", "0", ",", "0.5", ",", "1.5", ",", "x"}], "]"}], 
+        " ", "]"}], ",", 
+       RowBox[{"Abs", "[", 
+        RowBox[{"r", "[", 
+         RowBox[{"0", ",", "0", ",", "0.5", ",", "1.5", ",", "x"}], "]"}], 
+        " ", "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Blue", ",", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Red", ",", "Dashed"}], "]"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Axes", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"True", ",", "False"}], "}"}]}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<(ck-\!\(\*SubscriptBox[\(E\), \(2\)]\))/\[Gamma]\>\"", ",", 
+        "\"\<Transmission(Solid), Reflection(Dashed)\>\""}], "}"}]}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6040343240913677`*^9, 3.604034324229376*^9}, {
+   3.6040343895831137`*^9, 3.604034389669119*^9}, 3.604034584904286*^9, {
+   3.6040348152664614`*^9, 3.6040348199167275`*^9}, {3.604034911866987*^9, 
+   3.6040349154121895`*^9}, {3.6040351747770243`*^9, 3.604035175019038*^9}, {
+   3.604035815485671*^9, 3.6040358422982044`*^9}}],
+
+Cell[BoxData["\<\"tk_3LE_4.png\"\>"], "Output",
+ CellChangeTimes->{
+  3.604034693968524*^9, {3.6040348611080837`*^9, 3.6040348865345383`*^9}, 
+   3.604034928216922*^9, 3.60403518780977*^9, 3.604035843253259*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"Change", " ", "value", " ", "of", " ", "\[CapitalDelta]"}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.6040343533390408`*^9, 3.604034359042367*^9}, {
+  3.6040344161026306`*^9, 3.6040344182467537`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<tk_3LE_5.png\>\"", ",", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Abs", "[", 
+        RowBox[{"t", "[", 
+         RowBox[{"0.5", ",", "0", ",", "1", ",", "1.5", ",", "x"}], "]"}], 
+        " ", "]"}], ",", 
+       RowBox[{"Abs", "[", 
+        RowBox[{"r", "[", 
+         RowBox[{"0.5", ",", "0", ",", "1", ",", "1.5", ",", "x"}], "]"}], 
+        " ", "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Blue", ",", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Red", ",", "Dashed"}], "]"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Axes", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"True", ",", "False"}], "}"}]}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<(ck-\!\(\*SubscriptBox[\(E\), \(2\)]\))/\[Gamma]\>\"", ",", 
+        "\"\<Transmission(Solid), Reflection(Dashed)\>\""}], "}"}]}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.604034205877607*^9, 3.6040342064216375`*^9}, {
+   3.604034243554762*^9, 3.604034266672084*^9}, {3.6040342973998413`*^9, 
+   3.6040343074094143`*^9}, {3.604034380882616*^9, 3.6040343835267677`*^9}, {
+   3.6040344675825753`*^9, 3.6040344992603874`*^9}, 3.604034578402914*^9, {
+   3.6040348219568443`*^9, 3.604034827112139*^9}, {3.60403491856537*^9, 
+   3.6040349222545815`*^9}, {3.604035177087157*^9, 3.604035177369173*^9}}],
+
+Cell[BoxData["\<\"tk_3LE_5.png\"\>"], "Output",
+ CellChangeTimes->{
+  3.6040346940785303`*^9, {3.6040348612120895`*^9, 3.604034886707548*^9}, 
+   3.6040349285109386`*^9, 3.6040351879847803`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<tk_3LE_6.png\>\"", ",", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Abs", "[", 
+        RowBox[{"t", "[", 
+         RowBox[{"1.5", ",", "0", ",", "1", ",", "1.5", ",", "x"}], "]"}], 
+        " ", "]"}], ",", 
+       RowBox[{"Abs", "[", 
+        RowBox[{"r", "[", 
+         RowBox[{"1.5", ",", "0", ",", "1", ",", "1.5", ",", "x"}], "]"}], 
+        " ", "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Blue", ",", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Red", ",", "Dashed"}], "]"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Axes", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"True", ",", "False"}], "}"}]}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<(ck-\!\(\*SubscriptBox[\(E\), \(2\)]\))/\[Gamma]\>\"", ",", 
+        "\"\<Transmission(Solid), Reflection(Dashed)\>\""}], "}"}]}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6040343240913677`*^9, 3.604034324229376*^9}, {
+   3.6040343895831137`*^9, 3.604034389669119*^9}, 3.60403447063375*^9, {
+   3.6040345019065385`*^9, 3.604034503433626*^9}, 3.6040345696474133`*^9, {
+   3.604034830047307*^9, 3.6040348373127227`*^9}, {3.604035179394289*^9, 
+   3.6040351795943003`*^9}}],
+
+Cell[BoxData["\<\"tk_3LE_6.png\"\>"], "Output",
+ CellChangeTimes->{
+  3.6040346941875362`*^9, {3.6040348614521036`*^9, 3.6040348869435616`*^9}, 
+   3.604034928763953*^9, 3.6040351881937923`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"Change", " ", "value", " ", "of", " ", "\[Gamma]"}], 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.6040343533390408`*^9, 3.604034359042367*^9}, {
+  3.6040344161026306`*^9, 3.6040344182467537`*^9}, {3.604034514482258*^9, 
+  3.604034518977515*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<tk_3LE_7.png\>\"", ",", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Abs", "[", 
+        RowBox[{"t", "[", 
+         RowBox[{"0", ",", "1", ",", "1", ",", "1.5", ",", "x"}], "]"}], " ", 
+        "]"}], ",", 
+       RowBox[{"Abs", "[", 
+        RowBox[{"r", "[", 
+         RowBox[{"0", ",", "1", ",", "1", ",", "1.5", ",", "x"}], "]"}], " ", 
+        "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Blue", ",", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Red", ",", "Dashed"}], "]"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Axes", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"True", ",", "False"}], "}"}]}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<(ck-\!\(\*SubscriptBox[\(E\), \(2\)]\))/\[Gamma]\>\"", ",", 
+        "\"\<Transmission(Solid), Reflection(Dashed)\>\""}], "}"}]}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.604034205877607*^9, 3.6040342064216375`*^9}, {
+  3.604034243554762*^9, 3.604034266672084*^9}, {3.6040342973998413`*^9, 
+  3.6040343074094143`*^9}, {3.604034380882616*^9, 3.6040343835267677`*^9}, {
+  3.6040344675825753`*^9, 3.6040345586387835`*^9}, {3.604034841480961*^9, 
+  3.6040348793441267`*^9}, {3.6040351818014264`*^9, 3.604035182062441*^9}}],
+
+Cell[BoxData["\<\"tk_3LE_7.png\"\>"], "Output",
+ CellChangeTimes->{
+  3.6040346943355446`*^9, {3.6040348615701103`*^9, 3.604034887193576*^9}, 
+   3.604034929021968*^9, 3.6040351883918033`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<tk_3LE_8.png\>\"", ",", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Abs", "[", 
+        RowBox[{"t", "[", 
+         RowBox[{"0", ",", "4", ",", "1", ",", "1.5", ",", "x"}], "]"}], " ", 
+        "]"}], ",", 
+       RowBox[{"Abs", "[", 
+        RowBox[{"r", "[", 
+         RowBox[{"0", ",", "4", ",", "1", ",", "1.5", ",", "x"}], "]"}], " ", 
+        "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Blue", ",", 
+        RowBox[{"Directive", "[", 
+         RowBox[{"Red", ",", "Dashed"}], "]"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Axes", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"True", ",", "False"}], "}"}]}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<(ck-\!\(\*SubscriptBox[\(E\), \(2\)]\))/\[Gamma]\>\"", ",", 
+        "\"\<Transmission(Solid), Reflection(Dashed)\>\""}], "}"}]}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6040343240913677`*^9, 3.604034324229376*^9}, {
+   3.6040343895831137`*^9, 3.604034389669119*^9}, 3.60403447063375*^9, {
+   3.6040345019065385`*^9, 3.6040345520084043`*^9}, {3.604034849890442*^9, 
+   3.6040348718366976`*^9}, {3.6040351840185533`*^9, 3.604035184216564*^9}}],
+
+Cell[BoxData["\<\"tk_3LE_8.png\"\>"], "Output",
+ CellChangeTimes->{
+  3.6040346944355507`*^9, {3.6040348617181187`*^9, 3.6040348874945927`*^9}, 
+   3.604034929245981*^9, 3.604035188563813*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1350, 633},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1.5000001192092896`,
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 113, 1, 134, "Title"],
+Cell[695, 25, 1616, 43, 79, "Input",
+ InitializationCell->True],
+Cell[2314, 70, 1617, 43, 79, "Input",
+ InitializationCell->True],
+Cell[CellGroupData[{
+Cell[3956, 117, 3803, 77, 307, "Input"],
+Cell[7762, 196, 4280, 76, 679, "Output"]
+}, Open  ]],
+Cell[12057, 275, 187, 4, 45, "Input"],
+Cell[CellGroupData[{
+Cell[12269, 283, 1764, 41, 191, "Input"],
+Cell[14036, 326, 209, 3, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14282, 334, 1709, 40, 191, "Input"],
+Cell[15994, 376, 186, 2, 44, "Output"]
+}, Open  ]],
+Cell[16195, 381, 189, 4, 45, "Input"],
+Cell[CellGroupData[{
+Cell[16409, 389, 1839, 42, 191, "Input"],
+Cell[18251, 433, 265, 4, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18553, 442, 1711, 40, 191, "Input"],
+Cell[20267, 484, 211, 3, 44, "Output"]
+}, Open  ]],
+Cell[20493, 490, 242, 5, 45, "Input"],
+Cell[CellGroupData[{
+Cell[20760, 499, 1808, 41, 191, "Input"],
+Cell[22571, 542, 194, 3, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22802, 550, 1684, 40, 191, "Input"],
+Cell[24489, 592, 194, 3, 44, "Output"]
+}, Open  ]],
+Cell[24698, 598, 284, 6, 45, "Input"],
+Cell[CellGroupData[{
+Cell[25007, 608, 1729, 40, 191, "Input"],
+Cell[26739, 650, 192, 3, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26968, 658, 1654, 39, 191, "Input"],
+Cell[28625, 699, 192, 3, 44, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

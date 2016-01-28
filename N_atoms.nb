@@ -1,0 +1,577 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     23292,        568]
+NotebookOptionsPosition[     22024,        519]
+NotebookOutlinePosition[     22403,        535]
+CellTagsIndexPosition[     22360,        532]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["N-atoms in a waveguide", "Title",
+ CellChangeTimes->{{3.6024860139256325`*^9, 3.602486025548298*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Transfer Matrix of Propagation in free space and atom", "Section",
+ CellChangeTimes->{{3.6024860588892045`*^9, 3.602486078900349*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ClearAll", ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.603722294747984*^9, 3.60372231268701*^9}, {
+  3.6037223654710293`*^9, 3.6037223664060826`*^9}, {3.6037224209512024`*^9, 
+  3.6037224469346886`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"M", " ", "[", 
+   RowBox[{"k_", ",", "\[CapitalGamma]_", ",", "\[CapitalOmega]_"}], "]"}], ":=",
+   " ", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"4", "*", "I", "*", "Pi", " ", "k"}]], " ", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          FractionBox["\[CapitalGamma]", 
+           RowBox[{"(", 
+            RowBox[{"\[CapitalOmega]", "-", "k"}], ")"}]]}]}], ")"}]}], ",", 
+      RowBox[{
+       RowBox[{"-", "\[ImaginaryI]"}], " ", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         RowBox[{"-", "4"}], "*", "I", "*", "Pi", "*", "k"}]], " ", 
+       FractionBox["\[CapitalGamma]", 
+        RowBox[{"(", 
+         RowBox[{"\[CapitalOmega]", "-", "k"}], ")"}]]}]}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\[ImaginaryI]", " ", 
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{"4", "*", "I", "*", "Pi", "*", "k"}]], " ", 
+       FractionBox["\[CapitalGamma]", 
+        RowBox[{"(", 
+         RowBox[{"\[CapitalOmega]", "-", "k"}], ")"}]]}], ",", 
+      RowBox[{
+       SuperscriptBox["\[ExponentialE]", 
+        RowBox[{
+         RowBox[{"-", "4"}], "*", "I", "*", "Pi", "*", "k"}]], " ", 
+       RowBox[{"(", 
+        RowBox[{"1", "+", 
+         RowBox[{"\[ImaginaryI]", " ", 
+          FractionBox["\[CapitalGamma]", 
+           RowBox[{"(", 
+            RowBox[{"\[CapitalOmega]", "-", "k"}], ")"}]]}]}], ")"}]}]}], 
+     "}"}]}], "}"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6024740059664197`*^9, 3.6024740379612494`*^9}, {
+  3.60247407922861*^9, 3.602474128322418*^9}, {3.602486440558035*^9, 
+  3.6024864813443675`*^9}, {3.6028270088024487`*^9, 3.602827033857882*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Cascading Transfer Matrix N times:", "Section",
+ CellChangeTimes->{{3.602486095889321*^9, 3.6024861135653315`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SubscriptBox["M", "system"], "[", 
+   RowBox[{
+   "k_", ",", "\[CapitalGamma]_", ",", "\[CapitalOmega]_", ",", "N1_"}], 
+   "]"}], ":=", 
+  RowBox[{"MatrixPower", "[", 
+   RowBox[{
+    RowBox[{"M", "[", 
+     RowBox[{"k", ",", "\[CapitalGamma]", ",", "\[CapitalOmega]"}], "]"}], 
+    ",", "N1"}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.602827134550641*^9, 3.602827192435952*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"t", "[", 
+   RowBox[{
+   "k_", ",", "\[CapitalGamma]_", ",", "\[CapitalOmega]_", ",", "N1_"}], 
+   "]"}], " ", ":=", " ", 
+  RowBox[{"Abs", "[", 
+   RowBox[{"1", "/", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["M", "system"], "[", 
+      RowBox[{
+      "k", ",", "\[CapitalGamma]", ",", "\[CapitalOmega]", ",", "N1"}], "]"}],
+      "[", 
+     RowBox[{"[", 
+      RowBox[{"2", ",", "2"}], "]"}], "]"}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.602827195273114*^9, 3.602827239128623*^9}, 
+   3.602827354421217*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Plotting transmission coefficients", "Section",
+ CellChangeTimes->{{3.6024862976268597`*^9, 3.6024863228403015`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"1", "-", 
+      SuperscriptBox[
+       RowBox[{"t", "[", 
+        RowBox[{
+        "k", ",", "\[CapitalGamma]", ",", "\[CapitalOmega]", ",", "N1"}], 
+        "]"}], "2"]}], " ", ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "0", ",", "2"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Frame", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", " ", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<freq(2\[Pi]c/L)\>\"", ",", "\"\<Reflection\>\""}], 
+       "}"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"\[CapitalOmega]", ",", "1", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"N1", ",", "1", ",", "100", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[CapitalGamma]", ",", "0.005", ",", "2", ",", "0.005"}], "}"}], 
+   ",", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Right"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"\[CapitalGamma]", ">=", 
+    RowBox[{
+    "0.16", " ", "will", " ", "produce", " ", "similar", " ", "fibre", " ", 
+     "Bragg", " ", "grating"}]}], "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.6024864981233273`*^9, 3.602486551479379*^9}, {
+   3.602486609646706*^9, 3.6024866588385196`*^9}, {3.602486696363666*^9, 
+   3.602486774537137*^9}, {3.602486805167889*^9, 3.6024868084770784`*^9}, {
+   3.6024869387295284`*^9, 3.6024869420397177`*^9}, {3.6024872220857353`*^9, 
+   3.6024872676263404`*^9}, 3.6024874100364857`*^9, {3.6024874542650156`*^9, 
+   3.6024874603813653`*^9}, 3.6024875118583097`*^9, {3.6024877586214237`*^9, 
+   3.6024877588774385`*^9}, {3.602487970012514*^9, 3.6024880193683376`*^9}, {
+   3.6024881946283617`*^9, 3.602488221271886*^9}, {3.602488986872676*^9, 
+   3.602489143340625*^9}, 3.602489227787455*^9, {3.602489395508048*^9, 
+   3.602489441638687*^9}, {3.6024894805069103`*^9, 3.602489498289927*^9}, {
+   3.602489537396164*^9, 3.6024895561492367`*^9}, {3.6024895996517243`*^9, 
+   3.6024896032169285`*^9}, 3.602489668118641*^9, {3.6024897054867783`*^9, 
+   3.60248970657084*^9}, {3.6024897419408627`*^9, 3.602489797674051*^9}, {
+   3.6024898468278623`*^9, 3.6024898875361905`*^9}, 3.602489964506593*^9, {
+   3.602489995628373*^9, 3.6024900867285833`*^9}, {3.6024901257578163`*^9, 
+   3.602490161169842*^9}, 3.602502035682825*^9, {3.6025020851046515`*^9, 
+   3.6025020863777246`*^9}, {3.602503165575451*^9, 3.602503165758462*^9}, {
+   3.602541911462556*^9, 3.602541911690569*^9}, {3.602541976500276*^9, 
+   3.6025419937052603`*^9}, {3.6028091099315276`*^9, 3.602809149175772*^9}, {
+   3.602827259759803*^9, 3.6028272796129384`*^9}, {3.6028275177965617`*^9, 
+   3.6028276052545643`*^9}, {3.6031131425132766`*^9, 
+   3.6031131426332836`*^9}, {3.60315575891545*^9, 3.60315578181376*^9}, {
+   3.603155815221671*^9, 3.6031558218200483`*^9}, 3.603155854045892*^9, {
+   3.603155885226675*^9, 3.60315589405818*^9}, {3.603513279272002*^9, 
+   3.6035132809420977`*^9}, 3.603611708566085*^9, {3.60412563161416*^9, 
+   3.604125631949179*^9}, {3.604127451716264*^9, 3.6041274647030067`*^9}, {
+   3.604127532111862*^9, 3.604127550843934*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`N1$$ = 1, $CellContext`\[CapitalGamma]$$ = 
+    0.01, $CellContext`\[CapitalOmega]$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[CapitalOmega]$$], 1, 2}, {
+      Hold[$CellContext`N1$$], 1, 100, 1}, {
+      Hold[$CellContext`\[CapitalGamma]$$], 0.005, 2, 0.005}}, 
+    Typeset`size$$ = {630., {201., 216.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`\[CapitalOmega]$1318$$ = 0, $CellContext`N1$1319$$ = 
+    0, $CellContext`\[CapitalGamma]$1320$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`N1$$ = 1, $CellContext`\[CapitalGamma]$$ = 
+        0.005, $CellContext`\[CapitalOmega]$$ = 1}, "ControllerVariables" :> {
+        Hold[$CellContext`\[CapitalOmega]$$, \
+$CellContext`\[CapitalOmega]$1318$$, 0], 
+        Hold[$CellContext`N1$$, $CellContext`N1$1319$$, 0], 
+        Hold[$CellContext`\[CapitalGamma]$$, \
+$CellContext`\[CapitalGamma]$1320$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Plot[1 - $CellContext`t[$CellContext`k, $CellContext`\[CapitalGamma]$$, \
+$CellContext`\[CapitalOmega]$$, $CellContext`N1$$]^2, {$CellContext`k, 0, 2}, 
+        PlotRange -> {0, 1}, Frame -> True, 
+        FrameLabel -> {"freq(2\[Pi]c/L)", "Reflection"}], 
+      "Specifications" :> {{$CellContext`\[CapitalOmega]$$, 1, 
+         2}, {$CellContext`N1$$, 1, 100, 1}, {$CellContext`\[CapitalGamma]$$, 
+         0.005, 2, 0.005}}, "Options" :> {ControlPlacement -> Right}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{1122., {254., 263.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.60372234590491*^9, {3.6037223759536285`*^9, 3.603722380738902*^9}, {
+   3.6037224118236804`*^9, 3.603722458802367*^9}, 3.6037706677460756`*^9, 
+   3.6037738026133795`*^9, 3.604125624573757*^9, 3.604127469029254*^9, {
+   3.6041275333189316`*^9, 3.6041275534630833`*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Optic Bragg Grating(In progress)\
+\>", "Section",
+ CellChangeTimes->{{3.6031130907023134`*^9, 3.603113101736944*^9}, {
+  3.60315570190619*^9, 3.6031557088705883`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   SubscriptBox["r", "Bragg"], "[", 
+   RowBox[{"\[Kappa]L_", ",", "\[CapitalGamma]_"}], "]"}], ":=", 
+  FractionBox[
+   SuperscriptBox[
+    RowBox[{"Sinh", "[", 
+     RowBox[{"\[Kappa]L", " ", 
+      RowBox[{"Sqrt", "[", 
+       RowBox[{"1", "-", 
+        SuperscriptBox["\[CapitalGamma]", "2"]}], "]"}]}], "]"}], "2"], 
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"Cosh", "[", 
+      RowBox[{"\[Kappa]L", " ", 
+       RowBox[{"Sqrt", "[", 
+        RowBox[{"1", "-", 
+         SuperscriptBox["\[CapitalGamma]", "2"]}], "]"}]}], "]"}], "2"], "-", 
+    SuperscriptBox["\[CapitalGamma]", "2"]}]]}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["r", "Bragg"], "[", 
+      RowBox[{"\[Kappa]L", ",", "\[CapitalGamma]"}], "]"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"\[CapitalGamma]", ",", 
+       RowBox[{"-", "5"}], ",", "5"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Axes", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"True", ",", "False"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Frame", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Wavelength\>\"", ",", "\"\<Reflection\>\""}], "}"}]}]}], 
+    "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"\[Kappa]L", ",", "0.005", ",", "20", ",", "0.005"}], "}"}]}], 
+  "\[IndentingNewLine]", "]"}]}], "Input",
+ CellChangeTimes->{{3.6031131871898317`*^9, 3.603113220910761*^9}, {
+  3.6031542031376133`*^9, 3.603154244522671*^9}, {3.603154311972766*^9, 
+  3.6031543434108105`*^9}, {3.6031553593415956`*^9, 3.6031553800257792`*^9}, {
+  3.603155473284113*^9, 3.603155687630373*^9}, {3.604286111473937*^9, 
+  3.6042861227235804`*^9}, {3.6042861548464174`*^9, 3.6042862023291335`*^9}, {
+  3.604286240684327*^9, 3.60428631433454*^9}, {3.6042863567359653`*^9, 
+  3.604286449691282*^9}, {3.604286523917527*^9, 3.604286532658027*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`\[Kappa]L$$ = 3.81, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[Kappa]L$$], 0.005, 20, 0.005}}, Typeset`size$$ = {
+    630., {201., 216.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`\[Kappa]L$22892$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`\[Kappa]L$$ = 0.005}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`\[Kappa]L$$, $CellContext`\[Kappa]L$22892$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[
+        Subscript[$CellContext`r, \
+$CellContext`Bragg][$CellContext`\[Kappa]L$$, $CellContext`\[CapitalGamma]], \
+{$CellContext`\[CapitalGamma], -5, 5}, PlotRange -> {0, 1}, 
+        Axes -> {True, False}, Frame -> True, 
+        FrameLabel -> {"Wavelength", "Reflection"}], 
+      "Specifications" :> {{$CellContext`\[Kappa]L$$, 0.005, 20, 0.005}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{710., {281., 290.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.6037223807629037`*^9, {3.6037224118516817`*^9, 3.6037224588413696`*^9}, 
+   3.603770667791078*^9, 3.604286127301842*^9, {3.6042861632038956`*^9, 
+   3.604286203337191*^9}, 3.604286248039748*^9, {3.6042862832587624`*^9, 
+   3.6042863154226017`*^9}, {3.604286357784025*^9, 3.604286406613818*^9}, 
+   3.6042864501423073`*^9, 3.6042865365772514`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "-", 
+        SuperscriptBox[
+         RowBox[{"t", "[", 
+          RowBox[{
+          "k", ",", "\[CapitalGamma]", ",", "\[CapitalOmega]", ",", "N1"}], 
+          "]"}], "2"]}], ",", " ", 
+       SuperscriptBox[
+        RowBox[{"t", "[", 
+         RowBox[{
+         "k", ",", "\[CapitalGamma]", ",", "\[CapitalOmega]", ",", "N1"}], 
+         "]"}], "2"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k", ",", "0", ",", "2"}], "}"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Frame", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", "\"\<\[Omega]/\[CapitalOmega]\>\"", "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"PlotLegends", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Reflection\>\"", ",", "\"\<Transmission\>\""}], "}"}]}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Dashed", ",", "Red"}], "}"}]}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"\[CapitalOmega]", ",", "1", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"N1", ",", "1", ",", "100", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\[CapitalGamma]", ",", "0.005", ",", "2", ",", "0.005"}], "}"}], 
+   ",", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Top"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6052364551575737`*^9, 3.60523662031202*^9}, {
+  3.605236651203787*^9, 3.6052366609393435`*^9}, {3.60523689392367*^9, 
+  3.605236894368695*^9}, {3.6052369537850933`*^9, 3.605236964863727*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`N1$$ = 1, $CellContext`\[CapitalGamma]$$ = 
+    0.1, $CellContext`\[CapitalOmega]$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[CapitalOmega]$$], 1, 2}, {
+      Hold[$CellContext`N1$$], 1, 100, 1}, {
+      Hold[$CellContext`\[CapitalGamma]$$], 0.005, 2, 0.005}}, 
+    Typeset`size$$ = {835., {210., 224.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`\[CapitalOmega]$15056$$ = 0, $CellContext`N1$15057$$ = 
+    0, $CellContext`\[CapitalGamma]$15058$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`N1$$ = 1, $CellContext`\[CapitalGamma]$$ = 
+        0.005, $CellContext`\[CapitalOmega]$$ = 1}, "ControllerVariables" :> {
+        Hold[$CellContext`\[CapitalOmega]$$, \
+$CellContext`\[CapitalOmega]$15056$$, 0], 
+        Hold[$CellContext`N1$$, $CellContext`N1$15057$$, 0], 
+        Hold[$CellContext`\[CapitalGamma]$$, \
+$CellContext`\[CapitalGamma]$15058$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Plot[{1 - $CellContext`t[$CellContext`k, \
+$CellContext`\[CapitalGamma]$$, $CellContext`\[CapitalOmega]$$, \
+$CellContext`N1$$]^2, $CellContext`t[$CellContext`k, $CellContext`\
+\[CapitalGamma]$$, $CellContext`\[CapitalOmega]$$, $CellContext`N1$$]^2}, \
+{$CellContext`k, 0, 2}, PlotRange -> {0, 1}, Frame -> True, 
+        FrameLabel -> {"\[Omega]/\[CapitalOmega]"}, 
+        PlotLegends -> {"Reflection", "Transmission"}, 
+        PlotStyle -> {Dashed, Red}], 
+      "Specifications" :> {{$CellContext`\[CapitalOmega]$$, 1, 
+         2}, {$CellContext`N1$$, 1, 100, 1}, {$CellContext`\[CapitalGamma]$$, 
+         0.005, 2, 0.005}}, "Options" :> {ControlPlacement -> Top}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{915., {361., 370.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.6052369705400515`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`N1$$ = 1, $CellContext`\[CapitalGamma]$$ = 
+    0.1, $CellContext`\[CapitalOmega]$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[CapitalOmega]$$], 1, 2}, {
+      Hold[$CellContext`N1$$], 1, 100, 1}, {
+      Hold[$CellContext`\[CapitalGamma]$$], 0.005, 2, 0.005}}, 
+    Typeset`size$$ = {835., {210., 224.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`\[CapitalOmega]$14286$$ = 0, $CellContext`N1$14287$$ = 
+    0, $CellContext`\[CapitalGamma]$14288$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`N1$$ = 1, $CellContext`\[CapitalGamma]$$ = 
+        0.005, $CellContext`\[CapitalOmega]$$ = 1}, "ControllerVariables" :> {
+        Hold[$CellContext`\[CapitalOmega]$$, \
+$CellContext`\[CapitalOmega]$14286$$, 0], 
+        Hold[$CellContext`N1$$, $CellContext`N1$14287$$, 0], 
+        Hold[$CellContext`\[CapitalGamma]$$, \
+$CellContext`\[CapitalGamma]$14288$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Plot[{1 - $CellContext`t[$CellContext`k, \
+$CellContext`\[CapitalGamma]$$, $CellContext`\[CapitalOmega]$$, \
+$CellContext`N1$$]^2, $CellContext`t[$CellContext`k, $CellContext`\
+\[CapitalGamma]$$, $CellContext`\[CapitalOmega]$$, $CellContext`N1$$]^2}, \
+{$CellContext`k, 0, 2}, PlotRange -> {0, 1}, Frame -> True, 
+        FrameLabel -> {"freq(2\[Pi]c/L)"}, 
+        PlotLegends -> {"Reflection", "Transmission"}, 
+        PlotStyle -> {Dashed, Red}], 
+      "Specifications" :> {{$CellContext`\[CapitalOmega]$$, 1, 
+         2}, {$CellContext`N1$$, 1, 100, 1}, {$CellContext`\[CapitalGamma]$$, 
+         0.005, 2, 0.005}}, "Options" :> {ControlPlacement -> Top}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{915., {361., 370.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Input",
+ CellChangeTimes->{3.6052369044982743`*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1350, 730},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+Magnification->1.7499994039535522`,
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 107, 1, 156, "Title"],
+Cell[CellGroupData[{
+Cell[711, 27, 140, 1, 138, "Section"],
+Cell[854, 30, 249, 5, 53, "Input",
+ InitializationCell->True],
+Cell[1106, 37, 1820, 48, 148, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2963, 90, 121, 1, 138, "Section"],
+Cell[3087, 93, 446, 13, 53, "Input",
+ InitializationCell->True],
+Cell[3536, 108, 580, 18, 53, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4153, 131, 123, 1, 138, "Section"],
+Cell[CellGroupData[{
+Cell[4301, 136, 3323, 62, 241, "Input"],
+Cell[7627, 200, 2676, 51, 545, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10352, 257, 177, 4, 138, "Section"],
+Cell[CellGroupData[{
+Cell[10554, 265, 2151, 50, 330, "Input"],
+Cell[12708, 317, 2155, 41, 599, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14900, 363, 1824, 45, 274, "Input"],
+Cell[16727, 410, 2632, 51, 791, "Output"]
+}, Open  ]],
+Cell[19374, 464, 2622, 51, 759, InheritFromParent]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
